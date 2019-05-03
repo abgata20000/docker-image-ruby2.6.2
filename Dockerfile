@@ -43,14 +43,14 @@ RUN git clone https://github.com/sstephenson/rbenv.git /usr/local/rbenv \
 ENV PATH="$RBENV_ROOT:/bin:/usr/local/rbenv/versions/${ruby_ver}/bin:$PATH"
 
 # rubyとbundlerをインストール
-RUN . /etc/profile.d/rbenv.sh; \
-    && rbenv install ${ruby_ver}; \
-    && rbenv global ${ruby_ver}; \
-    && rbenv rehash; \
-    && . /etc/profile.d/rbenv.sh; \
-    && gem update --system; \
-    && gem install bundler; \
-    && bundle -v;
+RUN . /etc/profile.d/rbenv.sh \
+    && rbenv install ${ruby_ver} \
+    && rbenv global ${ruby_ver} \
+    && rbenv rehash \
+    && . /etc/profile.d/rbenv.sh \
+    && gem update --system \
+    && gem install bundler \
+    && bundle -v
 
 # chrome をインストール
 RUN apt-get install -y libappindicator3-1 libappindicator1 libnss3 fonts-liberation libasound2 libxss1 lsb-release xdg-utils \
