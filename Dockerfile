@@ -32,7 +32,7 @@ RUN echo 'eval "$(rbenv init --no-rehash -)"' >> /etc/profile.d/rbenv.sh
 
 ENV PATH="$RBENV_ROOT:/bin:/usr/local/rbenv/versions/${ruby_ver}/bin:$PATH"
 
-# rubyとrailsをインストール
+# rubyとbundlerをインストール
 RUN . /etc/profile.d/rbenv.sh;rbenv install ${ruby_ver}; rbenv global ${ruby_ver}; rbenv rehash;
 RUN . /etc/profile.d/rbenv.sh;gem update --system; gem install bundler; bundle -v;
 
@@ -63,4 +63,3 @@ RUN wget https://github.com/progrium/entrykit/releases/download/v${ENTRYKIT_VERS
     && mv entrykit /bin/entrykit \
     && chmod +x /bin/entrykit \
     && entrykit --symlink
-    
