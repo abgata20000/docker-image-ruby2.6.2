@@ -5,10 +5,10 @@ MAINTAINER abgata20000
 WORKDIR /tmp
 
 # rubyとrailsのバージョンを指定
-ENV ruby_ver="2.6.2"
-ENV LANG="ja_JP.UTF-8"
-ENV LANGUAGE="ja_JP:ja"
-ENV TZ="Asia/Tokyo"
+ENV ruby_ver="2.6.2" \
+    LANG="ja_JP.UTF-8" \
+    LANGUAGE="ja_JP:ja" \
+    TZ="Asia/Tokyo"
 
 RUN apt-get update \
   && apt-get upgrade -y \
